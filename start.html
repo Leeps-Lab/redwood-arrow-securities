@@ -1,0 +1,162 @@
+<div ng-controller="ASStartController">
+	<div class="container">
+		<div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Economics Experiment</a>
+                </div>
+                <ul class="nav navbar-nav">
+				<li class="active">
+					<a>User ID: <span>{{$root.user_id}}</span></a>
+				</li>
+				</ul>
+				<div class="navbar-right">
+					<div class="navbar-text">
+						Period: <span>{{$root.period}}</span>
+					</div>
+					<div class="navbar-text" ng-show="rounds">
+						Round: <span>{{round}} / {{rounds}}</span>
+					</div>
+					<div class="navbar-text">
+						Total Reward: <span>{{$root.totalPoints | number:2}}</span>
+					</div>
+				</div>
+            </div>
+        </div>
+
+		<div class="row" id="top">
+			<div class="centered" id="selections">
+
+				<div class="row top-buffer">
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="col-lg-4">Cash</div>					
+						<div class="col-lg-4">Red</div>
+						<div class="col-lg-4">Blue</div>
+					</div>
+				</div>
+
+				<div class="row top-buffer">
+
+					<div class="col-lg-4 col-lg-offset-4">
+
+						<div class="col-lg-4" style="padding-top: 40px; height: 150px;">
+							<div class="cashbar"></div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="asset-x red"></div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="asset-y blue"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row top-buffer	" id="mid">
+			<div class="centered" id="payoffs">
+
+				<div class="row top-buffer">
+
+					<div class="col-lg-2 prices">Price</div>
+
+					<div class="col-lg-4 col-lg-offset-2 payoffs">
+						<div class="col-lg-4">Cash</div>
+						<div class="col-lg-4">Red</div>
+						<div class="col-lg-4">Blue</div>
+					</div>
+
+					<div class="col-lg-4 totals">
+						<div class="col-lg-6 centered">Total</div>
+						<div class="col-lg-6 centered">Probability</div>
+					</div>
+
+				</div>
+
+				<div class="row top-buffer">
+
+					<div class="col-lg-2 prices">
+						<p class="price-x centered" />
+					</div>
+
+					<div class="col-lg-2">
+						<p>Payoff if Red</p>
+					</div>
+
+					<div class="col-lg-4 payoffs" id="x-payoff">
+
+						<div class="col-lg-4 centered">
+							<input class="cash-payoff centered" type="text" size="1" readonly>
+						</div>
+
+						<div class="col-lg-4 centered">
+							<input class="x-payoff centered" type="text" size="1" readonly>
+						</div>
+
+						<div class="col-lg-4 centered">
+							<input class="no-payoff centered" type="text" value="0" size="1" readonly>
+						</div>
+
+					</div>
+
+					<div class="col-lg-4 totals">
+
+						<div class="col-lg-6">
+							<input class="total-x centered" type="text" size="3" readonly>
+						</div>
+
+						<div class="col-lg-6">
+							<p class="prob-x centered" />
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="row top-buffer">
+
+					<div class="col-lg-2 prices">
+						<p class="price-y centered" />
+					</div>
+
+					<div class="col-lg-2">
+						<p>Payoff if Blue</p>
+					</div>
+
+					<div class="col-lg-4 payoffs" id="y-payoff">
+
+						<div class="col-lg-4 centered">
+							<input class="cash-payoff centered" type="text" size="1" readonly>
+						</div>
+
+						<div class="col-lg-4 centered">
+							<input class="no-payoff centered" type="text" value="0" size="1" readonly>
+						</div>
+
+						<div class="col-lg-4 centered">
+							<input class="y-payoff centered" type="text" size="1" readonly>
+						</div>
+
+					</div>
+
+					<div class="col-lg-4 totals">
+
+						<div class="col-lg-6">
+							<input class="total-y centered" type="text" size="3" readonly>
+						</div>
+
+						<div class="col-lg-6">
+							<p class="prob-y centered" />
+						</div>
+
+					</div>
+
+				</div>	
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+body {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.top-buffer {
+	margin-top: 20px;
+}
+
+.centered {
+	text-align: center;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.asset-x, .asset-y{
+  margin: 0 auto;
+  height: 150px;
+}
+
+.cashbar {
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  margin: 0 auto;
+}
+
+.red > .ui-slider-range {
+  background: #C00000;
+}
+
+.blue > .ui-slider-range {
+  background: blue;
+}
