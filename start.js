@@ -60,6 +60,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.ticknum = 0;
 			var timerUpdate = function() {
 				$scope.ticknum++;
+				console.log("here");
 			};
     	$scope.timer = SynchronizedStopWatch.instance()
         .frequency(1).onTick(timerUpdate)
