@@ -101,6 +101,10 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.selection = selection;
 		});
 
+		$scope.submitvalues = function() {
+			$("#submitbutton").addClass("disable");
+		};
+
 
  		/******************************
  		* .cashbar progressbar functions
