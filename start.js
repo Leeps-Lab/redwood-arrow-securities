@@ -73,7 +73,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 				max: $scope.cash,
 	 			value: $scope.cash
 	 		});
-			$("ui-progressbar-value ui-widget-header ui-corner-left").css("background", "green");
+			$(".ui-progressbar-value.ui-widget-header.ui-corner-left").css("background", "green");
 
 	 		$(".asset-x").slider({
 	 			range: "min",
