@@ -66,7 +66,7 @@ RedwoodArrowSecurities.controller("ASStartController",
         .duration($scope.durationInSeconds).onComplete(function() {
           rs.trigger("next_round");
         }
-			);
+			).start();
 
 			$(".cashbar").progressbar({
 				max: $scope.cash,
