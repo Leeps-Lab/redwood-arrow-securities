@@ -20,6 +20,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			}
 
 			$scope.cash = $scope.config.cash;
+			$scope.cashexhaustion = rs.config.cashexhaustion;
 
 			$scope.probX = $scope.config.probX;
 			$scope.probY = 1 - $scope.probX;
@@ -60,7 +61,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.ticknum = 0;
 			var timerUpdate = function() {
 				$scope.ticknum++;
-				console.log("here");
 			};
     	$scope.timer = SynchronizedStopWatch.instance()
         .frequency(1).onTick(timerUpdate)
@@ -105,7 +105,10 @@ RedwoodArrowSecurities.controller("ASStartController",
 			console.log("submit");
 		};
 		$scope.disablebutton = function() {
-			$("#submitbutton").addClass("disabled");
+			$("#submitbutton").attr("disabled", "disabled");
+		};
+		$scope.enablebutton = function() {
+			$("#submitbutton").removeAttr("disabled");
 		};
 
 
@@ -142,7 +145,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 				$(".x-payoff").val($scope.x_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.x_cost + $scope.y_cost)));
-				if ($scope.cash === 0 ) $scope.disablebutton();
+				if ($scope.cash === 0 && $scope.cashexhaustion) {
+					$scope.disablebutton();
+				} else if ($scope.cashexhaustion){
+					$scope.enablebutton();
+				}
 			}
 		});
 
@@ -184,7 +191,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 				$(".y-payoff").val($scope.y_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.y_cost + $scope.x_cost)));
-				if ($scope.cash === 0 ) $scope.disablebutton();
+				if ($scope.cash === 0 && $scope.cashexhaustion) {
+					$scope.disablebutton();
+				} else if ($scope.cashexhaustion){
+					$scope.enablebutton();
+				}
 			}
 		});
 
