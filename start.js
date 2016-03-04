@@ -192,9 +192,10 @@ RedwoodArrowSecurities.controller("ASStartController",
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.y_cost + $scope.x_cost)));
 				if ($scope.cash - ($scope.x_cost + $scope.y_cost) === 0 && $scope.cashexhaustion) {
-					$scope.disablebutton();
+					$scope.enablebutton();
 				} else if ($scope.cashexhaustion){
 					$scope.enablebutton();
+					$scope.disablebutton();
 				}
 			}
 		});
