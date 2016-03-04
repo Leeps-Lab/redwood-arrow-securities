@@ -145,14 +145,10 @@ RedwoodArrowSecurities.controller("ASStartController",
 				$(".x-payoff").val($scope.x_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.x_cost + $scope.y_cost)));
-				if ($scope.cash === 0 && $scope.cashexhaustion) {
-					console.log($scope.cashexhaustion);
+				if ($scope.cash - ($scope.x_cost + $scope.y_cost) === 0 && $scope.cashexhaustion) {
 					$scope.disablebutton();
 				} else if ($scope.cashexhaustion){
 					$scope.enablebutton();
-					console.log("node");
-				} else {
-					console.log("try again");
 				}
 			}
 		});
@@ -195,7 +191,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 				$(".y-payoff").val($scope.y_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.y_cost + $scope.x_cost)));
-				if ($scope.cash === 0 && $scope.cashexhaustion) {
+				if ($scope.cash - ($scope.x_cost + $scope.y_cost) === 0 && $scope.cashexhaustion) {
 					$scope.disablebutton();
 				} else if ($scope.cashexhaustion){
 					$scope.enablebutton();
