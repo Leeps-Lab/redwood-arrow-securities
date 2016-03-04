@@ -113,7 +113,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		$scope.togglebutton = function() {
 			console.log("cash: " + $scope.cash);
 			console.log("x : " + $scope.x_cost + ", y : " + $scope.y_cost);
-			console.log("cash remaining : " + $scope.cash - ($scope.x_cost + $scope.y_cost));
+			console.log("cash remaining : " + ($scope.cash - ($scope.x_cost + $scope.y_cost)));
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) === 0 && $scope.cashexhaustion) {
 				$scope.disablebutton();
 			} else if ($scope.cashexhaustion){
