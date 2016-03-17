@@ -19,7 +19,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 				Px: rs.config.Px,
 				Py: rs.config.Py,
 				cash: rs.config.cash,
-				ProbX: rs.config.Px
+				ProbX: rs.config.Px,
+				rounds: rs.config.rounds
 			};
 
 			$scope.price = {
@@ -34,6 +35,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.probY = 1 - $scope.probX;
 
 			$scope.rounds = $scope.config.rounds
+	 		$scope.round = 0;
 
 	    rs.trigger("next_round");
 	 	});
