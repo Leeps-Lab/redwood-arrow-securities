@@ -116,9 +116,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 		$scope.timeoutvalues = function() {
 			console.log("timeout");
+			/*
 			$(".asset-x").slider("option", "disabled", true);
 			$(".asset-y").slider("option", "disabled", true);
 			$("#submitbutton").attr("disabled", "disabled");
+			*/
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 ) {
 	      rs.trigger("as.confirm", {
 	          "round": $scope.currentRound,
