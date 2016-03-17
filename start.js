@@ -32,7 +32,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 
 
-	 	rs.on("next_round", function() {s
+	 	rs.on("next_round", function() {
 
 	 		if ($scope.rounds && $scope.round >= $scope.rounds) {
 	 			rs.trigger("next_period");
@@ -73,10 +73,12 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 		});
 			$(".ui-progressbar-value.ui-widget-header.ui-corner-left").css("background", "green");
 
+			var xprice = $scope.cash * (1 / $scope.price.x);
+			var yprice = $scope.cash * (1 / $scope.price.y);
 	 		$(".asset-x").slider({
 	 			range: "min",
 	 			min: 0,
-	 			max: $scope.cash * (1 / $scope.price.x),
+	 			max: Math.max(xprice, yprice),
 	 			value: 0,
 	 			orientation: "vertical",
 	 			width: 30,
@@ -86,7 +88,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 		$(".asset-y").slider({
 	 			range: "min",
 	 			min: 0,
-	 			max: $scope.cash * (1 / $scope.price.y),
+	 			max: Math.max(xprice, yprice),
 	 			value: 0,
 	 			orientation: "vertical",
 	 			width: 30,
