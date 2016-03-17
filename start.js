@@ -127,11 +127,11 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
 		$(".cashbar").on("progressbarcreate", function(event, ui) {
-			$(".cash-payoff").val($scope.cash);
+			$(".cash-payoff").text($scope.cash);
 		});
 
 		$(".cashbar").on("progressbarchange", function(event, ui) {
-			$(".cash-payoff").val($(".cashbar").progressbar("option", "value"));
+			$(".cash-payoff").text($(".cashbar").progressbar("option", "value"));
 		});
 
 
@@ -140,7 +140,7 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
  		$(".asset-x").on("slidecreate", function(event, ui) {
-			$(".x-payoff").val(0);
+			$(".x-payoff").text(0);
 		});
 
 		$(".asset-x").on("slide", function (event, ui) {
@@ -152,7 +152,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of x
-				$(".x-payoff").val($scope.x_selection);
+				$(".x-payoff").text($scope.x_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.x_cost + $scope.y_cost)));
 				$scope.togglebutton();
@@ -167,11 +167,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 			var x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
 			var y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
 
-			$(".x-payoff").val($scope.x_selection);
+			$(".x-payoff").text($scope.x_selection);
 			$(".cashbar").progressbar("option", "value",
 				($scope.cash - ($scope.y_cost + $scope.x_cost)));
-			$(".total-x").val(x_total);
-			$(".total-y").val(y_total);
+			$(".total-x").text(x_total);
+			$(".total-y").text(y_total);
 
 			rs.trigger("as.selection", [x_total, y_total]);
 		});
@@ -182,7 +182,7 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
 		$(".asset-y").on("slidecreate", function(event, ui) {
-			$(".y-payoff").val(0);
+			$(".y-payoff").text(0);
 		});
 
 		$(".asset-y").on("slide", function (event, ui) {
@@ -194,7 +194,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.y_cost + $scope.x_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of y
-				$(".y-payoff").val($scope.y_selection);
+				$(".y-payoff").text($scope.y_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.y_cost + $scope.x_cost)));
 				$scope.togglebutton();
@@ -208,11 +208,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 			var x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
 			var y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
 
-			$(".y-payoff").val($scope.y_selection);
+			$(".y-payoff").text($scope.y_selection);
 			$(".cashbar").progressbar("option", "value",
 				($scope.cash - ($scope.y_cost + $scope.x_cost)));
-			$(".total-x").val(x_total);
-			$(".total-y").val(y_total);
+			$(".total-x").text(x_total);
+			$(".total-y").text(y_total);
 
 			rs.trigger("as.selection", [x_total, y_total]);
 		});
