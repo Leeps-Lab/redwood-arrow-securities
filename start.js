@@ -63,6 +63,7 @@ RedwoodArrowSecurities.controller("ASStartController",
     	$scope.timer = SynchronizedStopWatch.instance()
         .frequency(1).onTick(timerUpdate)
         .duration($scope.durationInSeconds).onComplete(function() {
+					$scope.timeoutvalues();
           rs.trigger("next_round");
         }
 			).start();
@@ -101,11 +102,35 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.selection = selection;
 		});
 
+		$scope.timeoutvalues = function() {
+			console.log("timeout");
+			$(".asset-x").slider("option", "disabled", true);
+			$(".asset-y").slider("option", "disabled", true);
+			$("#submitbutton").attr("disabled", "disabled");
+			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 ) {
+	      rs.trigger("as.confirm", {
+	          "round": $scope.currentRound,
+	          "x": 0,
+	          "y": 0
+	      });
+			} else {
+	      rs.trigger("as.confirm", {
+	          "round": $scope.currentRound,
+	          "x": $scope.x_cost,
+	          "y": $scope.y_cost
+	      });
+			}
+		};
 		$scope.submitvalues = function() {
 			console.log("submit");
 			$(".asset-x").slider("option", "disabled", true);
 			$(".asset-y").slider("option", "disabled", true);
 			$("#submitbutton").attr("disabled", "disabled");
+      rs.trigger("as.confirm", {
+          "round": $scope.currentRound,
+          "x": $scope.x_cost,
+          "y": $scope.y_cost
+      });
 		};
 		$scope.disablebutton = function() {
 			$("#submitbutton").attr("disabled", "disabled");
@@ -171,8 +196,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			var y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
 
 			$(".x-payoff").text($scope.x_selection);
-			$(".cashbar").progressbar("option", "value",
-				($scope.cash - ($scope.y_cost + $scope.x_cost)));
+			$(".cashbar").progressbar("option", "value", ($scope.cash - ($scope.y_cost + $scope.x_cost)));
 			$(".total-x").text(x_total);
 			$(".total-y").text(y_total);
 
