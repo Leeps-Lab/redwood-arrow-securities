@@ -105,6 +105,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			console.log("submit");
 			$(".asset-x").slider("option", "disabled", true);
 			$(".asset-y").slider("option", "disabled", true);
+			$("#submitbutton").attr("disabled", "disabled");
 		};
 		$scope.disablebutton = function() {
 			$("#submitbutton").attr("disabled", "disabled");
