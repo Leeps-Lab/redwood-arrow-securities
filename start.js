@@ -41,6 +41,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 
 	 	rs.on("next_round", function() {
+			console.log("round: " + $scope.round);
+			console.log("rounds: " + $scope.rounds);
 
 	 		if ($scope.rounds && $scope.round >= $scope.rounds) {
 	 			rs.trigger("next_period");
