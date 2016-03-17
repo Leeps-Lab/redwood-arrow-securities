@@ -1,2 +1,2 @@
 period,subject,priceX,priceY,cash,probX,durationInSeconds,cashexhaustion
-1,default,0.5,1,100,0.5,20,true
+1,default,0.5,1,100,0.5,20,false

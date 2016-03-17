@@ -8,21 +8,21 @@ RedwoodArrowSecurities.controller("ASStartController",
 		rs.on_load(function() {
 
 			$scope.config = configManager.loadPerSubject(rs, {
-				priceX				: 0.5,
-				priceY				: 0.5,
+				Px				: 0.5,
+				Py				: 0.5,
 				cash 				: 50,
-				probX				: 0.5
+				ProbX				: 0.5
 			});
 
 			$scope.price = {
-				x: $scope.config.priceX,
-				y: $scope.config.priceY
+				x: $scope.config.Px,
+				y: $scope.config.Py
 			}
 
 			$scope.cash = $scope.config.cash;
 			$scope.cashexhaustion = rs.config.cashexhaustion;
 
-			$scope.probX = $scope.config.probX;
+			$scope.probX = $scope.config.ProbX;
 			$scope.probY = 1 - $scope.probX;
 
 			$scope.rounds = $scope.config.rounds
@@ -32,9 +32,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 
 
-	 	rs.on("next_round", function() {
-
-	 		$scope.inputsEnabled = false;
+	 	rs.on("next_round", function() {s
 
 	 		if ($scope.rounds && $scope.round >= $scope.rounds) {
 	 			rs.trigger("next_period");
