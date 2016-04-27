@@ -6,21 +6,14 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 function ($scope, rs, configManager, SynchronizedStopWatch) {
 
 		rs.on_load(function() {
-			/*
 			$scope.config = configManager.loadPerSubject(rs, {
 				Px				: 0.5,
 				Py				: 0.5,
-				cash 				: 50,
-				ProbX				: 0.5
+				cash 				: 100,
+				ProbX				: 0.5,
+				cashexhaustion : true,
+				durationInSeconds: 300
 			});
-			*/
-			$scope.config = {
-				Px: rs.config.Px,
-				Py: rs.config.Py,
-				cash: rs.config.cash,
-				ProbX: rs.config.Px,
-				rounds: rs.config.rounds
-			};
 
 			$scope.price = {
 				x: $scope.config.Px,
