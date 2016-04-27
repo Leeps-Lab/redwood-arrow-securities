@@ -6,7 +6,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 function ($scope, rs, configManager, SynchronizedStopWatch) {
 
 		rs.on_load(function() {
-			console.log(rs);
 			/*
 			$scope.config = configManager.loadPerSubject(rs, {
 				Px				: 0.5,
@@ -122,18 +121,19 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$("#submitbutton").attr("disabled", "disabled");
 			*/
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 ) {
-	      rs.trigger("as.confirm", {
-	          "round": $scope.currentRound,
-	          "x": 0,
-	          "y": 0
-	      });
+		    rs.set("as.results", {
+					"x": 0,
+					"y": 0,
+					"cash": $scope.cash
+		    });
 			} else {
-	      rs.trigger("as.confirm", {
-	          "round": $scope.currentRound,
-	          "x": $scope.x_cost,
-	          "y": $scope.y_cost
-	      });
+		    rs.set("as.results", {
+					"x": $scope.x_cost,
+					"y": $scope.y_cost,
+					"cash": $scope.cash - ($scope.x_cost + $scope.y_cost)
+		    });
 			}
+			rs.next_period();
 		};
 		$scope.submitvalues = function() {
 			console.log("submit");
@@ -145,6 +145,12 @@ RedwoodArrowSecurities.controller("ASStartController",
           "x": $scope.x_cost,
           "y": $scope.y_cost
       });
+	    rs.set("as.results", {
+				"x": $scope.x_cost,
+				"y": $scope.y_cost,
+				"cash": $scope.cash - ($scope.x_cost + $scope.y_cost)
+	    });
+			rs.next_period();
 		};
 		$scope.disablebutton = function() {
 			$("#submitbutton").attr("disabled", "disabled");
