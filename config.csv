@@ -1,2 +1,3 @@
-period,subject,Px,Py,cash,ProbX,durationInSeconds,cashexhaustion
+period,subject,Px,Py,cash,ProbX,durationInSeconds,cashexhausted
 1,default,0.5,1,100,0.5,600,false
+2,default,0.5,1,100,0.5,600,true
