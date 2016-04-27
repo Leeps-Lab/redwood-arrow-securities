@@ -24,7 +24,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.cashexhaustion = $scope.config.cashexhaustion;
 			console.log("am i tried : "+$scope.cashexhaustion);
 			console.log("in the scope : "+$scope.cashexhaustion);
-			$scope.togglebutton;
+			$scope.togglebutton();
 
 			$scope.probX = $scope.config.ProbX;
 			$scope.probY = 1 - $scope.probX;
