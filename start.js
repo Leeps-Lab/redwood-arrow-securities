@@ -9,9 +9,9 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.config = configManager.loadPerSubject(rs, {
 				Px				: 0.5,
 				Py				: 0.5,
-				cash 				: 100,
+				cash 				: 75,
 				ProbX				: 0.5,
-				cashexhaustion : true,
+				cashexhausted : true,
 				durationInSeconds: 300
 			});
 
@@ -21,7 +21,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			}
 
 			$scope.cash = $scope.config.cash;
-			$scope.cashexhaustion = $scope.config.cashexhaustion;
+			$scope.cashexhaustion = $scope.config.cashexhausted;
 			console.log("am i tried : "+$scope.cashexhaustion);
 			console.log("in the scope : "+$scope.cashexhaustion);
 			$scope.togglebutton();
