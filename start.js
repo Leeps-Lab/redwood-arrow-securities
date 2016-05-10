@@ -112,17 +112,31 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$(".asset-y").slider("option", "disabled", true);
 			$("#submitbutton").attr("disabled", "disabled");
 			*/
-			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 ) {
+			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 && $scope.cashexhaustion) {
 		    rs.set("as.results", {
 					"x": 0,
 					"y": 0,
-					"cash": $scope.cash
+					"cash": $scope.cash,
+					"period": rs.period,
+					"subject": parseInt(rs.user_id) - 1,
+					"cashexhaustion": $scope.cashexhaustion,
+					"Px": rs.config.Px,
+					"Py": rs.config.Py,
+					"cash": rs.config.cash,
+					"ProbX": rs.config.ProbX
 		    });
 			} else {
 		    rs.set("as.results", {
 					"x": $scope.x_cost,
 					"y": $scope.y_cost,
-					"cash": $scope.cash - ($scope.x_cost + $scope.y_cost)
+					"cash": $scope.cash - ($scope.x_cost + $scope.y_cost),
+					"period": rs.period,
+					"subject": parseInt(rs.user_id) - 1,
+					"cashexhaustion": $scope.cashexhaustion,
+					"Px": rs.config.Px,
+					"Py": rs.config.Py,
+					"cash": rs.config.cash,
+					"ProbX": rs.config.ProbX
 		    });
 			}
 			rs.next_period();
@@ -140,7 +154,14 @@ RedwoodArrowSecurities.controller("ASStartController",
 	    rs.set("as.results", {
 				"x": $scope.x_cost,
 				"y": $scope.y_cost,
-				"cash": $scope.cash - ($scope.x_cost + $scope.y_cost)
+				"cash": $scope.cash - ($scope.x_cost + $scope.y_cost),
+				"period": rs.period,
+				"subject": parseInt(rs.user_id) - 1,
+				"cashexhaustion": $scope.cashexhaustion,
+				"Px": rs.config.Px,
+				"Py": rs.config.Py,
+				"cash": rs.config.cash,
+				"ProbX": rs.config.ProbX
 	    });
 			rs.next_period();
 		};
