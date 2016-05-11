@@ -123,6 +123,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 					"Px": rs.config.Px,
 					"Py": rs.config.Py,
 					"cash": rs.config.cash,
+					"endcash": rs.config.cash,
 					"ProbX": rs.config.ProbX
 		    });
 			} else {
@@ -136,6 +137,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 					"Px": rs.config.Px,
 					"Py": rs.config.Py,
 					"cash": rs.config.cash,
+					"endcash": $scope.cash - ($scope.x_cost + $scope.y_cost),
 					"ProbX": rs.config.ProbX
 		    });
 			}
@@ -161,6 +163,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 				"Px": rs.config.Px,
 				"Py": rs.config.Py,
 				"cash": rs.config.cash,
+				"endcash": $scope.cash - ($scope.x_cost + $scope.y_cost),
 				"ProbX": rs.config.ProbX
 	    });
 			rs.next_period();
