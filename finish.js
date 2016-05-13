@@ -31,8 +31,10 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 $scope.labelX = rs.configs[rs.configs.length - 1].labelX || "X";
 			 $scope.labelY = rs.configs[rs.configs.length - 1].labelY || "Y";
 		 });
-		 
+
 		 rs.on("as.selected_x_or_y", function(xOrY) {
+			 console.log('caught the selected message');
+			 console.log(xOrY);
 			 var result = $scope.results.filter(function(result) {
 				 return result.period === $scope.selected_period;
 			 })[0];
