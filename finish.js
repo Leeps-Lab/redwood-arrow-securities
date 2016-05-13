@@ -3,6 +3,7 @@ RedwoodArrowSecurities.controller("ASFinishController",
 	 "RedwoodSubject",
 	 function ($scope, rs) {
 		 $scope.results = [];
+		 $scope.selected = false;
 
 		 rs.on_load(function() {
 			 var results = rs.subject[rs.user_id].data["as.results"];
@@ -30,6 +31,21 @@ RedwoodArrowSecurities.controller("ASFinishController",
 
 			 $scope.labelX = rs.configs[rs.configs.length - 1].labelX || "X";
 			 $scope.labelY = rs.configs[rs.configs.length - 1].labelY || "Y";
+		 });
+
+		 rs.on("payout_select_period", function(period) {
+			 var result = $scope.results.filter(function(result) {
+				 return result.period === period;
+			 })[0];
+
+			 if (result) {
+				 result.selected = !result.selected;
+				 $scope.selected_period = period;
+				 rs.send("__mark_paid__", {
+					 period: period,
+					 paid: $scope.payoutFunction(result)
+				 })
+			 }
 		 });
 
 		 rs.on("as.selected_x_or_y", function(xOrY) {
