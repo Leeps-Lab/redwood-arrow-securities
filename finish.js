@@ -13,12 +13,11 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 for (var i = 0; i < results.length; i++) {
 				 var result = results[i];
 				 var period = result.period;
-				 console.log(result);
 
 				 $scope.results.push({
 					 period: period,
-					 x: result.x * result.Px,
-					 y: result.y * result.Py,
+					 x: result.x / result.Px,
+					 y: result.y / result.Py,
 					 chosen: "",
 					 choosenLabel: "",
 					 selected: false
