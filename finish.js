@@ -54,6 +54,7 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 })[0];
 
 			 if (result) {
+				 console.log(result);
 				 result.chosen = xOrY;
 				 result.chosenLabel = xOrY === "x" ? $scope.labelX : $scope.labelY;
 				 rs.send("__set_points__", {
