@@ -49,8 +49,6 @@ RedwoodArrowSecurities.controller("ASFinishController",
 		 });
 
 		 rs.on("as.selected_x_or_y", function(xOrY) {
-			 console.log('caught the selected message');
-			 console.log(xOrY);
 			 var result = $scope.results.filter(function(result) {
 				 return result.period === $scope.selected_period;
 			 })[0];
@@ -60,7 +58,7 @@ RedwoodArrowSecurities.controller("ASFinishController",
 				 result.chosenLabel = xOrY === "x" ? $scope.labelX : $scope.labelY;
 				 rs.send("__set_points__", {
 					 period: $scope.selected_period,
-					 points: xOrY === "x" ? result.x : result.Yy
+					 points: xOrY === "x" ? result.x : result.y
 				 });
 			 }
 		 });
