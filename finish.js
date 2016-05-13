@@ -5,6 +5,18 @@ RedwoodArrowSecurities.controller("ASFinishController",
 		 $scope.results = [];
 		 $scope.selected = false;
 
+		 $scope.payoutFunction = function(entry) {
+			 if (entry.selected && entry.chosen != "") {
+				 if (entry.chosen === "x") {
+					 return entry.X / 3;
+				 } else {
+					 return entry.Y / 3;
+				 }
+			 } else {
+				 return 0;
+			 }
+		 }
+
 		 rs.on_load(function() {
 			 var results = rs.subject[rs.user_id].data["as.results"];
 
@@ -54,7 +66,6 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 })[0];
 
 			 if (result) {
-				 console.log(result);
 				 result.chosen = xOrY;
 				 result.chosenLabel = xOrY === "x" ? $scope.labelX : $scope.labelY;
 				 rs.send("__set_points__", {
