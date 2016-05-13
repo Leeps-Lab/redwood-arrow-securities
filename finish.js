@@ -31,4 +31,19 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 $scope.labelX = rs.configs[rs.configs.length - 1].labelX || "X";
 			 $scope.labelY = rs.configs[rs.configs.length - 1].labelY || "Y";
 		 });
+		 
+		 rs.on("as.selected_x_or_y", function(xOrY) {
+			 var result = $scope.results.filter(function(result) {
+				 return result.period === $scope.selected_period;
+			 })[0];
+
+			 if (result) {
+				 result.chosen = xOrY;
+				 result.chosenLabel = xOrY === "x" ? $scope.labelX : $scope.labelY;
+				 rs.send("__set_points__", {
+					 period: $scope.selected_period,
+					 points: xOrY === "x" ? result.x : result.Yy
+				 });
+			 }
+		 });
 }]);
