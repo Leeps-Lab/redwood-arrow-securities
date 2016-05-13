@@ -5,7 +5,7 @@ RedwoodArrowSecurities.controller("ASFinishController",
 		 $scope.results = [];
 
 		 rs.on_load(function() {
-			 var results = rs.subject[rs.user_id].data["rp.results"];
+			 var results = rs.subject[rs.user_id].data["as.results"];
 
 			 if (!results) {
 				 return;
