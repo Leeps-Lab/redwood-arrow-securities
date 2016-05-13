@@ -13,6 +13,7 @@ RedwoodArrowSecurities.controller("ASFinishController",
 			 for (var i = 0; i < results.length; i++) {
 				 var result = results[i];
 				 var period = result.period;
+				 console.log(result);
 
 				 $scope.results.push({
 					 period: period,
