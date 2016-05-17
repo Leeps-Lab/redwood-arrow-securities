@@ -22,8 +22,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 			$scope.cash = $scope.config.cash;
 			$scope.cashexhaustion = $scope.config.cashexhausted;
-			console.log("am i tried : "+$scope.cashexhaustion);
-			console.log("in the scope : "+$scope.cashexhaustion);
 			$scope.togglebutton();
 
 			$scope.probX = $scope.config.ProbX;
@@ -144,7 +142,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 			rs.next_period();
 		};
 		$scope.submitvalues = function() {
-			console.log("submit");
 			$(".asset-x").slider("option", "disabled", true);
 			$(".asset-y").slider("option", "disabled", true);
 			$("#submitbutton").attr("disabled", "disabled");
