@@ -98,7 +98,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 			height: 300
 	 		});
 
-			$(".ui-state-default").height($(".ui-state-default").height() / 3)
+			$(".ui-state-default").css('padding-bottom', $(".ui-state-default").height() / 2)
+														.height($(".ui-state-default").height() / 3)
 														.css('opacity', '0.6');
 	 	});
 
