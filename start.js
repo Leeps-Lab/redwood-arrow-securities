@@ -98,6 +98,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 			height: 300
 	 		});
 
+			$(".ui-state-default").height($(".ui-state-default").height() / 3)
+														.css('opacity', '0.6');
 	 	});
 
 		rs.on("as.selection", function(selection) {
