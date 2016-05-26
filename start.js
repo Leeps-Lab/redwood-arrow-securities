@@ -186,10 +186,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.cashPayoff = $scope.cash;
 		});
 
-		$(".cashbar").on("progressbarchange", function(event, ui) {
-			$scope.cashPayoff = ui.value;
-			console.log(event);
-		});
+		$(".cashbar").on("progressbarchange", function(event, ui) {});
 
 
  		/******************************
@@ -208,8 +205,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of x
-				$(".cashbar").progressbar("option", "value",
-					($scope.cash - ($scope.x_cost + $scope.y_cost)));
+				$scope.cashPayoff = $scope.cash - ($scope.x_cost + $scope.y_cost);
+				$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 				$scope.togglebutton();
 			}
 		});
@@ -219,10 +216,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.x_cost = $scope.x_selection * $scope.price.x;
 
 
-			$scope.x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
-			$scope.y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
+			$scope.x_total = $scope.x_selection + $scope.cashPayoff;
+			$scope.y_total = $scope.y_selection + $scope.cashPayoff;
+			$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
 
-			$(".cashbar").progressbar("option", "value", ($scope.cash - ($scope.y_cost + $scope.x_cost)));
+			$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 
 			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
@@ -244,8 +242,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.y_cost + $scope.x_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of y
-				$(".cashbar").progressbar("option", "value",
-					($scope.cash - ($scope.y_cost + $scope.x_cost)));
+				$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
+				$(".cashbar").progressbar("option", "value", $scope.cashPayoff;
 				$scope.togglebutton();
 			}
 		});
@@ -254,11 +252,11 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.y_selection = ui.value;
 			$scope.y_cost = $scope.y_selection * $scope.price.y;
 
-			$scope.x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
-			$scope.y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
+			$scope.x_total = $scope.x_selection + $scope.cashPayoff;
+			$scope.y_total = $scope.y_selection + $scope.cashPayoff;
 
-			$(".cashbar").progressbar("option", "value",
-				($scope.cash - ($scope.y_cost + $scope.x_cost)));
+			$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
+			$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 
 			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
