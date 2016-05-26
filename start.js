@@ -170,7 +170,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$("#submitbutton").removeAttr("disabled");
 		};
 		$scope.togglebutton = function() {
-			if ($scope.cash - ($scope.x_cost + $scope.y_cost) === 0 && $scope.cashexhaustion) {
+			if ($scope.cashPayoff === 0 && $scope.cashexhaustion) {
 				$scope.enablebutton();
 			} else if ($scope.cashexhaustion){
 				$scope.disablebutton();
@@ -187,8 +187,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$(".cashbar").on("progressbarchange", function(event, ui) {
-			console.log(event);
-			console.log(ui);
 			$scope.cashPayoff = ui.value;
 		});
 
@@ -198,7 +196,6 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
  		$(".asset-x").on("slidecreate", function(event, ui) {
-			$(".x-payoff").text(0);
 		});
 
 		$(".asset-x").on("slide", function (event, ui) {
@@ -210,7 +207,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of x
-				$(".x-payoff").text($scope.x_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.x_cost + $scope.y_cost)));
 				$scope.togglebutton();
@@ -222,15 +218,12 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.x_cost = $scope.x_selection * $scope.price.x;
 
 
-			var x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
-			var y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
+			$scope.x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
+			$scope.y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
 
-			$(".x-payoff").text($scope.x_selection);
 			$(".cashbar").progressbar("option", "value", ($scope.cash - ($scope.y_cost + $scope.x_cost)));
-			$(".total-x").text(x_total);
-			$(".total-y").text(y_total);
 
-			rs.trigger("as.selection", [x_total, y_total]);
+			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
 
 
@@ -239,7 +232,6 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
 		$(".asset-y").on("slidecreate", function(event, ui) {
-			$(".y-payoff").text(0);
 		});
 
 		$(".asset-y").on("slide", function (event, ui) {
@@ -251,7 +243,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 			if ($scope.cash - ($scope.y_cost + $scope.x_cost) < 0){
 				return false;
 			} else { // Otherwise set the new value of y
-				$(".y-payoff").text($scope.y_selection);
 				$(".cashbar").progressbar("option", "value",
 					($scope.cash - ($scope.y_cost + $scope.x_cost)));
 				$scope.togglebutton();
@@ -262,16 +253,13 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.y_selection = ui.value;
 			$scope.y_cost = $scope.y_selection * $scope.price.y;
 
-			var x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
-			var y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
+			$scope.x_total = $scope.x_selection + $(".cashbar").progressbar("option", "value");
+			$scope.y_total = $scope.y_selection + $(".cashbar").progressbar("option", "value");
 
-			$(".y-payoff").text($scope.y_selection);
 			$(".cashbar").progressbar("option", "value",
 				($scope.cash - ($scope.y_cost + $scope.x_cost)));
-			$(".total-x").text(x_total);
-			$(".total-y").text(y_total);
 
-			rs.trigger("as.selection", [x_total, y_total]);
+			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
 
 }]);
