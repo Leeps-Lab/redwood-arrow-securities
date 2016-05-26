@@ -7,12 +7,12 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 		rs.on_load(function() {
 			$scope.config = configManager.loadPerSubject(rs, {
-				Px				: 0.5,
-				Py				: 0.5,
-				cash 				: 75,
-				ProbX				: 0.5,
-				cashexhausted : true,
-				durationInSeconds: 300
+				Px                : 0.5,
+				Py                : 0.5,
+				cash              : 75,
+				ProbX             : 0.5,
+				cashexhausted     : true,
+				durationInSeconds : 300
 			});
 
 			$scope.price = {
@@ -51,11 +51,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 		$scope.y_cost = 0;
 
 			rs.trigger("as.selection", [$scope.cash, $scope.cash]);
-
-			$(".price-x").text($scope.price.x);
-			$(".price-y").text($scope.price.y);
-			$(".prob-x").text($scope.probX);
-			$(".prob-y").text($scope.probY);
 
 			$scope.durationInSeconds = rs.config.durationInSeconds;
 			$scope.ticknum = 0;
