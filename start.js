@@ -183,11 +183,13 @@ RedwoodArrowSecurities.controller("ASStartController",
  		*******************************/
 
 		$(".cashbar").on("progressbarcreate", function(event, ui) {
-			$(".cash-payoff").text($scope.cash);
+			$scope.cashPayoff = $scope.cash;
 		});
 
 		$(".cashbar").on("progressbarchange", function(event, ui) {
-			$(".cash-payoff").text($(".cashbar").progressbar("option", "value"));
+			console.log(event);
+			console.log(ui);
+			$scope.cashPayoff = ui.value;
 		});
 
 
