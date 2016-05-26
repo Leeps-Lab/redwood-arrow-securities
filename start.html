@@ -53,112 +53,43 @@
 			</div>
 		</div>
 
-		<div class="row top-buffer	" id="mid">
-			<div class="centered" id="payoffs">
-
-				<div class="row top-buffer">
-
-					<div class="col-md-2 prices">
-						<div class="col-md-8">Probability</div>
-						<div class="col-md-4">Price</div>
-					</div>
-
-					<div class="col-md-4 col-md-offset-2 payoffs">
-						<div class="col-md-4">Cash</div>
-						<div class="col-md-4">Red</div>
-						<div class="col-md-4">Blue</div>
-					</div>
-
-					<div class="col-md-4 totals">
-						<div class="col-md-6 centered">Total</div>
-						<div class="col-md-6 centered">Probability</div>
-					</div>
-
-				</div>
-
-				<div class="row top-buffer">
-
-					<div class="col-md-2 prices">
-						<p class="col-md-8 prob-x centered" />
-						<p class="col-md-4 price-x centered" />
-					</div>
-
-					<div class="col-md-2">
-						<p>Payoff if Red</p>
-					</div>
-
-					<div class="col-md-4 payoffs" id="x-payoff">
-
-						<div class="col-md-4 centered">
-							<h3 class="cash-payoff centered"></h3>
-						</div>
-
-						<div class="col-md-4 centered">
-							<h3 class="x-payoff centered"></h3>
-						</div>
-
-						<div class="col-md-4 centered">
-							<h3 class="no-payoff centered"></h3>
-						</div>
-
-					</div>
-
-					<div class="col-md-4 totals">
-
-						<div class="col-md-6">
-							<h3 class="total-x centered"></h3>
-						</div>
-
-						<div class="col-md-6">
-							<p class="prob-x centered" />
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="row top-buffer">
-
-					<div class="col-md-2 prices">
-						<p class="col-md-8 prob-y centered" />
-						<p class="col-md-4 price-y centered" />
-					</div>
-
-					<div class="col-md-2">
-						<p>Payoff if Blue</p>
-					</div>
-
-					<div class="col-md-4 payoffs" id="y-payoff">
-
-						<div class="col-md-4 centered">
-							<h3 class="cash-payoff centered"></h3>
-						</div>
-
-						<div class="col-md-4 centered">
-							<h3 class="no-payoff centered"></h3>
-						</div>
-
-						<div class="col-md-4 centered">
-							<h3 class="y-payoff centered"></h3>
-						</div>
-
-					</div>
-
-					<div class="col-md-4 totals">
-
-						<div class="col-md-6">
-							<h3 class="total-y centered"></h3>
-						</div>
-
-						<div class="col-md-6">
-							<p class="prob-y centered" />
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Probability</th>
+						<th>Price</th>
+						<th></th>
+						<th>Cash</th>
+						<th>Red</th>
+						<th>Blue</th>
+						<th>Total</th>
+						<th>Probability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="prob-x"></td>
+						<td class="price-x"></td>
+						<td>Payoff if Red</td>
+						<td class="cash-payoff"></td>
+						<td class="x-payoff"></td>
+						<td class="no-payoff"></td>
+						<td class="total-x"></td>
+						<td class="prob-x"></td>
+					</tr>
+					<tr>
+						<td class="prob-y"></td>
+						<td class="price-y"></td>
+						<td>Payoff if Blue</td>
+						<td class="cash-payoff"></td>
+						<td class="y-payoff"></td>
+						<td class="total-y"></td>
+						<td class="no-payoff"></td>
+						<td class="prob-y"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="row" id="bot" style="margin-top: 40px">
       <div class="col-md-offset-3 col-md-6">
