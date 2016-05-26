@@ -103,11 +103,6 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$scope.timeoutvalues = function() {
-			/*
-			$(".asset-x").slider("option", "disabled", true);
-			$(".asset-y").slider("option", "disabled", true);
-			$("#submitbutton").attr("disabled", "disabled");
-			*/
 			if ($scope.cash - ($scope.x_cost + $scope.y_cost) !== 0 && $scope.cashexhaustion) {
 		    rs.set("as.results", {
 					"x": 0,
@@ -207,6 +202,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 			} else { // Otherwise set the new value of x
 				$scope.cashPayoff = $scope.cash - ($scope.x_cost + $scope.y_cost);
 				$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
+
+				$scope.$apply();
 				$scope.togglebutton();
 			}
 		});
@@ -245,6 +242,8 @@ RedwoodArrowSecurities.controller("ASStartController",
 			} else { // Otherwise set the new value of y
 				$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
 				$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
+
+				$scope.$apply();
 				$scope.togglebutton();
 			}
 		});
