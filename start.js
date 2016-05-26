@@ -95,7 +95,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 			$(".ui-state-default").css('padding-bottom', $(".ui-state-default").height() / 2)
 														.height($(".ui-state-default").height() / 3)
-														.css('opacity', '0.6');
+														.css('opacity', '0.4');
 	 	});
 
 		rs.on("as.selection", function(selection) {
