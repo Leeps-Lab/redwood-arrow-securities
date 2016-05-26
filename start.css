@@ -30,3 +30,7 @@ body {
 .blue > .ui-slider-range {
   background: blue;
 }
+
+th {
+  text-align: center;
+}
