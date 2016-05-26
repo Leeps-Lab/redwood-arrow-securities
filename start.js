@@ -243,7 +243,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 				return false;
 			} else { // Otherwise set the new value of y
 				$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
-				$(".cashbar").progressbar("option", "value", $scope.cashPayoff;
+				$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 				$scope.togglebutton();
 			}
 		});
