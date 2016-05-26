@@ -222,6 +222,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 
 			$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 
+			$scope.$apply();
 			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
 
@@ -258,6 +259,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$scope.cashPayoff = $scope.cash - ($scope.y_cost + $scope.x_cost);
 			$(".cashbar").progressbar("option", "value", $scope.cashPayoff);
 
+			$scope.$apply();
 			rs.trigger("as.selection", [$scope.x_total, $scope.y_total]);
 		});
 
