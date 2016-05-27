@@ -74,20 +74,20 @@
 						<td>{{probX}}</td>
 						<td>{{price.x}}</td>
 						<td>Payoff if Red</td>
-						<td><strong>{{cashPayoff}}</strong></td>
+						<td><strong>{{cashPayoff | number: 2}}</strong></td>
 						<td><strong>{{x_selection}}</strong></td>
 						<td></td>
-						<td><strong>{{x_total}}</strong></td>
+						<td><strong>{{x_total | number: 2}}</strong></td>
 						<td>{{probX}}</td>
 					</tr>
 					<tr>
 						<td>{{probY}}</td>
 						<td>{{price.y}}</td>
 						<td>Payoff if Blue</td>
-						<td><strong>{{cashPayoff}}</strong></td>
+						<td><strong>{{cashPayoff | number: 2}}</strong></td>
 						<td></td>
 						<td><strong>{{y_selection}}</strong></td>
-						<td><strong>{{y_total}}</strong></td>
+						<td><strong>{{y_total | number: 2}}</strong></td>
 						<td>{{probY}}</td>
 					</tr>
 				</tbody>
