@@ -8,9 +8,9 @@ RedwoodArrowSecurities.controller("ASFinishController",
 		 $scope.payoutFunction = function(entry) {
 			 if (entry.selected && entry.chosen != "") {
 				 if (entry.chosen === "x") {
-					 return entry.x / 3;
+					 return entry.x / 8;
 				 } else {
-					 return entry.y / 3;
+					 return entry.y / 8;
 				 }
 			 } else {
 				 return 0;
