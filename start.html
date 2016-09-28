@@ -61,7 +61,7 @@
 					<tr>
 						<th>Probability</th>
 						<th>Price</th>
-						<th></th>
+						<th>State</th>
 						<th>Cash</th>
 						<th>Red</th>
 						<th>Blue</th>
@@ -71,24 +71,24 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>{{probX}}</td>
-						<td>{{price.x}}</td>
-						<td>Payoff if Red</td>
-						<td><strong>{{cashPayoff | number: 2}}</strong></td>
-						<td><strong>{{x_selection}}</strong></td>
-						<td></td>
-						<td><strong>{{x_total | number: 2}}</strong></td>
-						<td>{{probX}}</td>
+						<td>{{probX | number: 3}}</td>
+						<td>{{price.x | number: 3}}</td>
+						<td class="text-red">Red</td>
+						<td><strong>{{cashPayoff | number: 1}}</strong></td>
+						<td><strong>{{x_selection | number: 1}}</strong></td>
+						<td>0</td>
+						<td><strong>{{x_total | number: 1}}</strong></td>
+						<td class="text-red">{{probX | number: 3}}</td>
 					</tr>
 					<tr>
-						<td>{{probY}}</td>
-						<td>{{price.y}}</td>
-						<td>Payoff if Blue</td>
-						<td><strong>{{cashPayoff | number: 2}}</strong></td>
-						<td></td>
-						<td><strong>{{y_selection}}</strong></td>
-						<td><strong>{{y_total | number: 2}}</strong></td>
-						<td>{{probY}}</td>
+						<td>{{probY | number: 3}}</td>
+						<td>{{price.y | number: 3}}</td>
+						<td class="text-blue">Blue</td>
+						<td><strong>{{cashPayoff | number: 1}}</strong></td>
+						<td>0</td>
+						<td><strong>{{y_selection | number: 1}}</strong></td>
+						<td><strong>{{y_total | number: 1}}</strong></td>
+						<td class="text-blue">{{probY | number: 3}}</td>
 					</tr>
 				</tbody>
 			</table>

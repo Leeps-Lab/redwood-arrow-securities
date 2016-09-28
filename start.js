@@ -76,7 +76,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 		$(".asset-x").slider({
 	 			range: "min",
 	 			min: 0,
-	 			max: Math.max(xprice, yprice),
+	 			max: Math.max(xprice, yprice) * 1000,
 	 			value: 0,
 	 			orientation: "vertical",
 	 			width: 30,
@@ -165,7 +165,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$("#submitbutton").removeAttr("disabled");
 		};
 		$scope.togglebutton = function() {
-			if ($scope.cashPayoff === 0 && $scope.cashexhaustion) {
+			if ($scope.cashPayoff < Math.min($scope.x_cost, $scope.y_cost) && $scope.cashexhaustion) {
 				$scope.enablebutton();
 			} else if ($scope.cashexhaustion){
 				$scope.disablebutton();
@@ -192,7 +192,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$(".asset-x").on("slide", function (event, ui) {
-			$scope.x_selection = ui.value;
+			$scope.x_selection = ui.value / 1000;
 			$scope.x_cost = $scope.x_selection * $scope.price.x;
 
 			// If the cost of x and y combined is more than the
@@ -209,7 +209,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
  		$(".asset-x").on("slidechange", function(event, ui) {
-			$scope.x_selection = ui.value;
+			$scope.x_selection = ui.value / 1000;
 			$scope.x_cost = $scope.x_selection * $scope.price.x;
 
 
@@ -232,7 +232,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$(".asset-y").on("slide", function (event, ui) {
-			$scope.y_selection = ui.value;
+			$scope.y_selection = ui.value / 1000;
 			$scope.y_cost = $scope.y_selection * $scope.price.y;
 
 			// If the cost of y and x combined is more than the
@@ -249,7 +249,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$(".asset-y").on("slidechange", function(event, ui) {
-			$scope.y_selection = ui.value;
+			$scope.y_selection = ui.value / 1000;
 			$scope.y_cost = $scope.y_selection * $scope.price.y;
 
 			$scope.x_total = $scope.x_selection + $scope.cashPayoff;
