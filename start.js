@@ -86,7 +86,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 	 		$(".asset-y").slider({
 	 			range: "min",
 	 			min: 0,
-	 			max: Math.max(xprice, yprice),
+	 			max: Math.max(xprice, yprice) * 1000,
 	 			value: 0,
 	 			orientation: "vertical",
 	 			width: 30,
