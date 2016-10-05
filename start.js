@@ -103,7 +103,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 		});
 
 		$scope.timeoutvalues = function() {
-			if ($scope.cash < 0.001 !== 0 && $scope.cashexhaustion) {
+			if ($scope.cash < $scope.cash * 0.1 !== 0 && $scope.cashexhaustion) {
 		    rs.set("as.results", {
 					"x": 0,
 					"y": 0,
@@ -165,7 +165,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$("#submitbutton").removeAttr("disabled");
 		};
 		$scope.togglebutton = function() {
-			if ($scope.cashPayoff < 0.001 && $scope.cashexhaustion) {
+			if ($scope.cashPayoff < $scope.cash * 0.1 && $scope.cashexhaustion) {
 				$scope.enablebutton();
 			} else if ($scope.cashexhaustion){
 				$scope.disablebutton();
