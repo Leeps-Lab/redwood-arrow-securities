@@ -165,7 +165,7 @@ RedwoodArrowSecurities.controller("ASStartController",
 			$("#submitbutton").removeAttr("disabled");
 		};
 		$scope.togglebutton = function() {
-			if ($scope.cashPayoff < $scope.cash * 0.001 && $scope.cashexhaustion) {
+			if ($scope.cashPayoff < $scope.cash * 0.01 && $scope.cashexhaustion) {
 				$scope.enablebutton();
 			} else if ($scope.cashexhaustion){
 				$scope.disablebutton();
